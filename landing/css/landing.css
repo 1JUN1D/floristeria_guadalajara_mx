@@ -327,7 +327,7 @@ img { max-width: 100%; height: auto; display: block; }
     margin-top: 16px;
 }
 .zone-badge {
-    background: #2c2c2c;
+    background: #40353E;
     color: #fff;
     padding: 6px 18px;
     border-radius: 25px;
@@ -437,9 +437,9 @@ img { max-width: 100%; height: auto; display: block; }
     border-color: #d5d0c8;
 }
 .filter-btn.active {
-    background: #2c2c2c;
+    background: #40353E;
     color: #fff;
-    border-color: #2c2c2c;
+    border-color: #40353E;
 }
 .results-counter {
     padding: 10px 0;
@@ -646,7 +646,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* --- FINAL CTA --- */
 .final-cta,
 .cta-final-section {
-    background: linear-gradient(135deg, #2c2c2c 0%, #444 100%);
+    background: linear-gradient(135deg, #40353E 0%, #8C748B 100%);
     color: #fff;
     text-align: center;
     padding: 60px 20px;
@@ -685,7 +685,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* --- FOOTER --- */
 .footer {
-    background: #1a1a1a;
+    background: #0D0D0D;
     color: #ccc;
     padding: 30px 0;
     text-align: center;

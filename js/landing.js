@@ -1,5 +1,5 @@
 // ===================================
-// LANDING PAGE JS - Flore Guadalajara
+// LANDING PAGE JS - Floreli Guadalajara
 // Catálogo con prioridad por categoría + Conversiones Google Ads
 // ===================================
 

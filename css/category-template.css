@@ -30,8 +30,8 @@
     inset: 0;
     background: linear-gradient(135deg, 
         rgba(26, 26, 26, 0.85) 0%, 
-        rgba(233, 30, 99, 0.75) 50%,
-        rgba(139, 195, 74, 0.65) 100%
+        rgba(64, 53, 62, 0.75) 50%,
+        rgba(191, 159, 189, 0.65) 100%
     );
     z-index: 1;
 }
@@ -56,7 +56,7 @@
 }
 
 .category-hero-content .breadcrumb a {
-    color: #78BF45;
+    color: #BF9FBD;
     font-weight: 500;
     transition: color 0.3s ease;
 }
@@ -108,7 +108,7 @@
 .section-title {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    color: #1a1a1a;
+    color: #0D0D0D;
     margin-bottom: 1rem;
 }
 
@@ -130,25 +130,25 @@
     padding: 3rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
-    border-left: 4px solid #155902;
+    border-left: 4px solid #40353E;
 }
 
 .service-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 32px rgba(233, 30, 99, 0.15);
-    border-left-color: #78BF45;
+    box-shadow: 0 12px 32px rgba(64, 53, 62, 0.15);
+    border-left-color: #BF9FBD;
 }
 
 .service-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #155902 0%, #15400F 100%);
+    background: linear-gradient(135deg, #40353E 0%, #8C748B 100%);
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
-    box-shadow: 0 8px 24px rgba(233, 30, 99, 0.3);
+    box-shadow: 0 8px 24px rgba(64, 53, 62, 0.3);
 }
 
 .service-icon svg {
@@ -158,7 +158,7 @@
 .service-content h2 {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
-    color: #1a1a1a;
+    color: #0D0D0D;
     margin-bottom: 1.5rem;
 }
 
@@ -179,8 +179,8 @@
 .feature-tag {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: rgba(233, 30, 99, 0.08);
-    color: #15400F;
+    background: rgba(64, 53, 62, 0.08);
+    color: #8C748B;
     border-radius: 50px;
     font-size: 0.875rem;
     font-weight: 500;
@@ -190,7 +190,7 @@
     display: inline-flex;
     align-items: center;
     padding: 1rem 2rem;
-    background: linear-gradient(135deg, #78BF45 0%, #BFA75E 100%);
+    background: linear-gradient(135deg, #BF9FBD 0%, #F2C9F0 100%);
     color: #ffffff;
     border-radius: 50px;
     font-weight: 600;
@@ -198,13 +198,13 @@
     letter-spacing: 0.5px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(139, 195, 74, 0.3);
+    box-shadow: 0 4px 12px rgba(191, 159, 189, 0.3);
 }
 
 .btn-service:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(139, 195, 74, 0.4);
-    background: linear-gradient(135deg, #BFA75E 0%, #D99A4E 100%);
+    box-shadow: 0 6px 20px rgba(191, 159, 189, 0.4);
+    background: linear-gradient(135deg, #F2C9F0 0%, #D99A4E 100%);
 }
 
 /* ===================================
@@ -212,7 +212,7 @@
    =================================== */
 .category-cta {
     padding: 100px 0;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    background: linear-gradient(135deg, #0D0D0D 0%, #2d2d2d 100%);
     text-align: center;
 }
 
@@ -231,11 +231,11 @@
 }
 
 .category-cta .btn-primary {
-    background: linear-gradient(135deg, #155902 0%, #15400F 100%);
+    background: linear-gradient(135deg, #40353E 0%, #8C748B 100%);
 }
 
 .category-cta .btn-primary:hover {
-    background: linear-gradient(135deg, #78BF45 0%, #BFA75E 100%);
+    background: linear-gradient(135deg, #BF9FBD 0%, #F2C9F0 100%);
 }
 
 /* ===================================
@@ -359,12 +359,12 @@
    UTILIDADES ESPECÍFICAS
    =================================== */
 .text-highlight {
-    color: #155902;
+    color: #40353E;
     font-weight: 600;
 }
 
 .text-accent {
-    color: #78BF45;
+    color: #BF9FBD;
     font-weight: 600;
 }
 
