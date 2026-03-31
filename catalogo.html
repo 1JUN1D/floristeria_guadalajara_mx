@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6NHH0Z9EPN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6NHH0Z9EPN');
+</script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo floral completo en Guadalajara - Floristería Flore. Rosas, girasoles, gerberas, bouquets, canastas, cajas florales, arreglos fúnebres y más. Entrega a domicilio.">
+    <meta name="keywords" content="floristeria guadalajara, catalogo flores, arreglos florales guadalajara, rosas, girasoles, gerberas, bouquets, canastas florales, arreglos funebres, flores a domicilio guadalajara">
+    <title>Catálogo Floral Completo - Floristería Flore | Flores en Guadalajara</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Catálogo Floral - Floristería Flore Guadalajara">
+    <meta property="og:description" content="Explora nuestro catálogo completo de arreglos florales, bouquets, canastas, cajas y más en Guadalajara. Entrega a domicilio.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://floristeriaguadalajara.dondeseria.com/catalogo-2">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/catalog.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.webp">
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section class="catalog-hero">
+        <div class="container">
+            <h1>Catálogo Floral</h1>
+            <p>Explora nuestra colección completa de arreglos florales, bouquets, canastas, cajas y mucho más</p>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="catalog-filters">
+        <div class="container">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" class="search-input" id="search-input" placeholder="Buscar ramos, rosas, girasoles, gerberas...">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+                <button class="search-clear" id="search-clear">&times;</button>
+            </div>
+            <div class="filters-container">
+                <span class="filter-label">Filtrar por:</span>
+                <button class="filter-btn active" data-filter="todos">Todos los Productos</button>
+                <button class="filter-btn" data-filter="rosas">Rosas</button>
+                <button class="filter-btn" data-filter="girasoles">Girasoles</button>
+                <button class="filter-btn" data-filter="tulipanes">Tulipanes</button>
+                <button class="filter-btn" data-filter="gerberas">Gerberas</button>
+                <button class="filter-btn" data-filter="bouquets">Bouquets</button>
+                <button class="filter-btn" data-filter="cajas">Cajas Florales</button>
+                <button class="filter-btn" data-filter="mix">Flores Mixtas</button>
+                <button class="filter-btn" data-filter="premium">Premium</button>
+                <button class="filter-btn" data-filter="precio-bajo">Menos de $1,000</button>
+                <button class="filter-btn" data-filter="precio-medio">$1,000 - $2,250</button>
+                <button class="filter-btn" data-filter="precio-alto">Más de $2,250</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Counter -->
+    <div class="results-counter">
+        <div class="container">
+            Mostrando <strong id="results-count">16</strong> productos
+        </div>
+    </div>
+
+    <!-- Products Grid -->
+    <section class="catalog-section">
+        <div class="container">
+            <div class="products-grid" id="products-grid">
+                <!-- Los productos se generarán aquí -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state">
+                <h3>No se encontraron productos</h3>
+                <p>Intenta con otro filtro para ver más opciones</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">×</button>
+            <img src="" alt="" class="lightbox-image" id="lightbox-image">
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-price"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scroll-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- WhatsApp Button -->
+    <div id="whatsapp-button-container"></div>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script>
+        // Datos de productos - Catálogo Floral Completo
+const products = [
+            {
+                id: 1,
+                name: "Ramo 50 Rosas Atadas",
+                price: 1700,
+                image: "assets/foto1.webp",
+                description: "Hermoso ramo de 50 rosas frescas cuidadosamente atadas. Un arreglo generoso y elegante perfecto para sorpresas especiales. Las rosas frescas se mantienen por días con los cuidados adecuados.",
+                categories: ["rosas", "precio-medio"]
+            },
+            {
+                id: 2,
+                name: "Ramo 24 Rosas Atadas",
+                price: 1000,
+                image: "assets/foto1.webp",
+                description: "Delicado ramo de 24 rosas frescas atadas con elegancia. Un regalo clásico y romántico ideal para cualquier ocasión especial. Las rosas duran más tiempo con el tallo cortado en diagonal.",
+                categories: ["rosas", "precio-medio"]
+            },
+            {
+                id: 3,
+                name: "Caja Floral 50 Rosas",
+                price: 2050,
+                image: "assets/foto2.webp",
+                description: "Elegante caja floral con 50 rosas rojas vibrantes presentadas en base de espuma floral. Arreglo premium que combina cantidad con sofisticación. Perfecto para expresar amor y admiración.",
+                categories: ["rosas", "cajas", "precio-medio"]
+            },
+            {
+                id: 4,
+                name: "Caja Floral 100 Rosas y Orquídeas",
+                price: 3500,
+                image: "assets/foto3.webp",
+                description: "Espectacular caja floral que combina 100 rosas rojas intensas con elegantes orquídeas blancas en base de espuma. Arreglo de lujo con una presentación envolvente y sofisticada. Ideal para momentos memorables.",
+                categories: ["rosas", "cajas", "premium", "precio-alto"]
+            },
+            {
+                id: 5,
+                name: "Corazón 50 Rosas Rojas",
+                price: 2200,
+                image: "assets/foto4.webp",
+                description: "Romántico corazón floral formado por 50 rosas rojas frescas en base de espuma. Diseño clásico de amor que expresa pasión y devoción. Presentación visual impactante para momentos inolvidables.",
+                categories: ["rosas", "cajas", "precio-medio"]
+            },
+            {
+                id: 6,
+                name: "Jarrón 12 Rosas",
+                price: 600,
+                image: "assets/foto5.webp",
+                description: "Elegante jarrón con 12 rosas frescas en agua. Arreglo accesible y hermoso que añade calidez a cualquier espacio. Las rosas se mantienen frescas y brillantes durante la semana.",
+                categories: ["rosas", "precio-bajo"]
+            },
+            {
+                id: 7,
+                name: "Jarrón 24 Rosas",
+                price: 1000,
+                image: "assets/foto5.webp",
+                description: "Generoso jarrón con 24 rosas frescas en agua cristalina. Arreglo elegante y duradero que llena de color y fragancia cualquier ambiente. Perfecto para decoración durable y económica.",
+                categories: ["rosas", "precio-medio"]
+            },
+            {
+                id: 8,
+                name: "Ramo 6 Girasoles",
+                price: 700,
+                image: "assets/foto6.webp",
+                description: "Radiante ramo de 6 girasoles que irradian alegría y vitalidad. Flores frescas y brillantes que traen luz a cualquier espacio. Ideal para sorpresas económicas con mucho impacto visual.",
+                categories: ["girasoles", "precio-bajo"]
+            },
+            {
+                id: 9,
+                name: "Ramo 12 Girasoles",
+                price: 1050,
+                image: "assets/foto6.webp",
+                description: "Abundante ramo de 12 girasoles frescos que capturan la esencia del verano. Flores doradas y brillantes que transmiten positivismo y energía. Perfecto para alegrar cualquier ambiente.",
+                categories: ["girasoles", "precio-medio"]
+            },
+            {
+                id: 10,
+                name: "Ramo 12 Girasoles Soleados",
+                price: 1050,
+                image: "assets/foto7.webp",
+                description: "Espléndido ramo de 12 girasoles frescos presentados juntos. Las flores amarillas doradas simbolizan alegría y lealtad. Arreglo generoso ideal para expresar buenos deseos y optimismo.",
+                categories: ["girasoles", "precio-medio"]
+            },
+            {
+                id: 11,
+                name: "Ramo 10 Tulipanes",
+                price: 1400,
+                image: "assets/foto8.webp",
+                description: "Elegante ramo de 10 tulipanes frescos en tonos vibrantes. Flores delicadas y refinadas que simbolizan elegancia y primavera. Perfecto para expresar amor y admiración con sofisticación.",
+                categories: ["tulipanes", "precio-medio"]
+            },
+            {
+                id: 12,
+                name: "Ramo 30 Tulipanes Multicolores",
+                price: 3600,
+                image: "assets/foto9.webp",
+                description: "Exuberante ramo de 30 tulipanes frescos en variados colores. Flores premium que crean un efecto visual espectacular. Arreglo generoso y lujoso perfecto para ocasiones especiales.",
+                categories: ["tulipanes", "premium", "precio-alto"]
+            },
+            {
+                id: 13,
+                name: "Ramo 20 Tulipanes",
+                price: 2450,
+                image: "assets/foto10.webp",
+                description: "Hermoso ramo de 20 tulipanes frescos en presentación elegante. Flores delicadas con pétalos suaves que duran más tiempo. Ideal para expresar sentimientos románticos con estilo.",
+                categories: ["tulipanes", "precio-alto"]
+            },
+            {
+                id: 14,
+                name: "Ramo 12 Gerberas",
+                price: 800,
+                image: "assets/foto11.webp",
+                description: "Colorido ramo de 12 gerberas frescas en tonos variados. Flores grandes y vistosas que radiante alegría y vitalidad. Arreglo popular y duradero que embellece cualquier espacio.",
+                categories: ["gerberas", "precio-bajo"]
+            },
+            {
+                id: 15,
+                name: "Ramo Mix Pequeño Flores Surtidas",
+                price: 850,
+                image: "assets/foto12.webp",
+                description: "Bonito ramo pequeño con 12 tallos de flores surtidas de temporada. Combinación multicolor que mezcla texturas y aromas. Arreglo económico y versátil perfecto para cualquier ocasión.",
+                categories: ["mix", "bouquets", "precio-bajo"]
+            },
+            {
+                id: 16,
+                name: "Ramo Mix Mediano Flores Surtidas",
+                price: 1400,
+                image: "assets/foto13.webp",
+                description: "Vistoso ramo mediano con 18 tallos de flores surtidas de temporada. Combinación armoniosa que mezcla colores, aromas y texturas. Ideal para decoración y regalos con variedad.",
+                categories: ["mix", "bouquets", "precio-medio"]
+            },
+            {
+                id: 17,
+                name: "Ramo Mix Grande Flores Temporada",
+                price: 2100,
+                image: "assets/foto14.webp",
+                description: "Exuberante ramo grande con 30 tallos de flores mixtas de temporada. Combinación premium que ofrece abundancia y variedad de colores. Perfecto para hacer una declaración floral impactante.",
+                categories: ["mix", "bouquets", "precio-medio"]
+            },
+            {
+                id: 18,
+                name: "Caja Floral Mix Lisiantus y Orquídeas",
+                price: 2900,
+                image: "assets/foto15.webp",
+                description: "Sofisticada caja floral con mix de flores incluyendo lisiantus, rosas, mini rosas, hortensias y una vara de orquídea. Arreglo premium multifloral que combina elegancia y abundancia. Presentación impactante.",
+                categories: ["cajas", "mix", "premium", "precio-alto"]
+            },
+            {
+                id: 19,
+                name: "Caja Floral Mix Flores Premium",
+                price: 2600,
+                image: "assets/foto16.webp",
+                description: "Hermosa caja floral con mix sofisticado: lisiantus, rosa, mini rosas y eucalipto. Combinación elegante de flores que crea una presentación refinada. Ideal para sorpresas especiales.",
+                categories: ["cajas", "mix", "premium", "precio-alto"]
+            },
+            {
+                id: 20,
+                name: "Bouquet 24 Rosas Blanco y Rosa",
+                price: 1000,
+                image: "assets/foto17.webp",
+                description: "Delicado bouquet de 24 rosas en tonos blanco y rosa pastel. Combinación romántica y tierna que simboliza amor suave. Perfecto para expresar sentimientos con delicadeza y elegancia.",
+                categories: ["rosas", "bouquets", "precio-medio"]
+            },
+            {
+                id: 21,
+                name: "Bouquet 24 Rosas Rojo y Rosa",
+                price: 1000,
+                image: "assets/foto18.webp",
+                description: "Pasional bouquet de 24 rosas combinando rojo intenso con rosa. Mezcla que expresa tanto pasión como romance. Presentación clásica y elegante para momentos significativos.",
+                categories: ["rosas", "bouquets", "precio-medio"]
+            },
+            {
+                id: 22,
+                name: "Bouquet 24 Rosas con 20 Tulipanes",
+                price: 3100,
+                image: "assets/foto19.webp",
+                description: "Lujoso bouquet que combina 24 rosas con 20 tulipanes frescos. Mezcla premium que une dos flores clásicas del romance. Arreglo generoso y espectacular para ocasiones especiales.",
+                categories: ["rosas", "tulipanes", "bouquets", "premium", "precio-alto"]
+            },
+            {
+                id: 23,
+                name: "Caja Floral Estilo Garden",
+                price: 2200,
+                image: "assets/foto20.webp",
+                description: "Elegante caja floral con diseño garden que imita un jardín natural. Combinación de flores frescas en presentación rústica y sofisticada. Perfecto para regalos premium que impresionen.",
+                categories: ["cajas", "precio-medio"]
+            },
+            {
+                id: 24,
+                name: "Caja Floral Estilo Garden Deluxe",
+                price: 2600,
+                image: "assets/foto21.webp",
+                description: "Suntuosa caja floral garden con abundancia de flores en arreglo natural. Diseño premium que combina elementos rústicos con sofisticación. Ideal para ocasiones que merecen lo mejor.",
+                categories: ["cajas", "premium", "precio-alto"]
+            },
+            {
+                id: 25,
+                name: "Ramo Mix Grande Flores Premium",
+                price: 2300,
+                image: "assets/foto22.webp",
+                description: "Abundante ramo grande con 30 tallos de flores mixtas de temporada en selección premium. Arreglo generoso que mezcla colores y texturas. Perfecto para regalos especiales con impacto visual.",
+                categories: ["mix", "bouquets", "precio-alto"]
+            }
+        ];
+        // Normalizar texto (quitar tildes y minúsculas)
+        function normalize(str) {
+            return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        }
+
+        // Estado global de búsqueda y filtro
+        let currentFilter = 'todos';
+        let currentSearch = '';
+
+        // Renderizar productos
+        function renderProducts(filter, search) {
+            if (filter !== undefined) currentFilter = filter;
+            if (search !== undefined) currentSearch = search;
+
+            const grid = document.getElementById('products-grid');
+            const emptyState = document.getElementById('empty-state');
+            const resultsCount = document.getElementById('results-count');
+
+            let filteredProducts = products;
+
+            // Aplicar filtro de categoría
+            if (currentFilter !== 'todos') {
+                filteredProducts = filteredProducts.filter(product =>
+                    product.categories.includes(currentFilter)
+                );
+            }
+
+            // Aplicar búsqueda de texto
+            if (currentSearch.trim() !== '') {
+                const searchNorm = normalize(currentSearch.trim());
+                const searchWords = searchNorm.split(/\s+/);
+                filteredProducts = filteredProducts.filter(product => {
+                    const text = normalize(product.name + ' ' + product.description + ' ' + product.categories.join(' '));
+                    return searchWords.every(word => text.includes(word));
+                });
+            }
+
+            if (filteredProducts.length === 0) {
+                grid.style.display = 'none';
+                emptyState.classList.add('active');
+                resultsCount.textContent = '0';
+                return;
+            }
+
+            grid.style.display = 'grid';
+            emptyState.classList.remove('active');
+            resultsCount.textContent = filteredProducts.length;
+
+            // Intercalar productos para variedad visual
+            if (currentFilter === 'todos' && currentSearch.trim() === '') {
+                const funebre = filteredProducts.filter(p => p.categories.includes('funebre'));
+                const noFunebre = filteredProducts.filter(p => !p.categories.includes('funebre'));
+
+                // Agrupar no-fúnebres por categoría principal
+                const categoryGroups = {};
+                const categoryOrder = ['rosas', 'bouquets', 'cajas', 'girasoles', 'tulipanes', 'gerberas', 'mix', 'premium'];
+
+                noFunebre.forEach(p => {
+                    const mainCat = categoryOrder.find(c => p.categories.includes(c)) || 'otros';
+                    if (!categoryGroups[mainCat]) categoryGroups[mainCat] = [];
+                    categoryGroups[mainCat].push(p);
+                });
+
+                // Intercalar por precio dentro de cada grupo (alto-bajo-alto-bajo)
+                Object.values(categoryGroups).forEach(group => {
+                    group.sort((a, b) => a.price - b.price);
+                    const temp = [];
+                    let lo = 0, hi = group.length - 1;
+                    let pickHigh = true;
+                    while (lo <= hi) {
+                        if (pickHigh) { temp.push(group[hi--]); }
+                        else { temp.push(group[lo++]); }
+                        pickHigh = !pickHigh;
+                    }
+                    group.length = 0;
+                    group.push(...temp);
+                });
+
+                // Round-robin intercalado
+                const interleaved = [];
+                const activeCats = categoryOrder.filter(c => categoryGroups[c] && categoryGroups[c].length > 0);
+                if (categoryGroups['otros'] && categoryGroups['otros'].length > 0) activeCats.push('otros');
+
+                let maxLen = Math.max(...activeCats.map(c => categoryGroups[c].length));
+                for (let i = 0; i < maxLen; i++) {
+                    for (const cat of activeCats) {
+                        if (categoryGroups[cat] && i < categoryGroups[cat].length) {
+                            interleaved.push(categoryGroups[cat][i]);
+                        }
+                    }
+                }
+
+                // Añadir fúnebres al final
+                filteredProducts = [...interleaved, ...funebre];
+            }
+
+            grid.innerHTML = filteredProducts.map(product => `
+                <div class="product-card" data-categories="${product.categories.join(' ')}">
+                    <div class="product-image-container" onclick="openLightbox('${product.image}', '${product.name}', '${formatPrice(product.price)}')">
+                        <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
+                        <div class="zoom-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                                <line x1="11" y1="8" x2="11" y2="14"/>
+                                <line x1="8" y1="11" x2="14" y2="11"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="product-description">${product.description}</div>
+                        <div class="product-footer">
+                            <div>
+                                <span class="price-label">Desde</span>
+                                <div class="product-price">${formatPrice(product.price)}</div>
+                            </div>
+                            <a href="https://wa.me/5213331727333?text=Hola,%20me%20interesa%20el%20producto:%20${encodeURIComponent(product.name)}%20-%20${formatPrice(product.price)}"
+                               class="btn-order"
+                               target="_blank">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                </svg>
+                                Pedir Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Formatear precio
+        function formatPrice(price) {
+            return '$' + price.toLocaleString('es-MX');
+        }
+
+        // Filtros
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                renderProducts(this.dataset.filter);
+                window.scrollTo({ top: 400, behavior: 'smooth' });
+            });
+        });
+
+        // Búsqueda
+        const searchInput = document.getElementById('search-input');
+        const searchClear = document.getElementById('search-clear');
+        let searchTimeout;
+
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            const val = this.value;
+            searchClear.classList.toggle('visible', val.length > 0);
+            searchTimeout = setTimeout(() => {
+                renderProducts(undefined, val);
+            }, 250);
+        });
+
+        searchClear.addEventListener('click', function() {
+            searchInput.value = '';
+            searchClear.classList.remove('visible');
+            renderProducts(undefined, '');
+            searchInput.focus();
+        });
+
+        // Lightbox
+        function openLightbox(image, name, price) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxPrice = document.getElementById('lightbox-price');
+
+            lightboxImage.src = image;
+            lightboxImage.alt = name;
+            lightboxTitle.textContent = name;
+            lightboxPrice.textContent = price;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        // Scroll to top
+        const scrollTop = document.getElementById('scroll-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Inicializar
+        renderProducts();
+    </script>
+</body>
+</html>

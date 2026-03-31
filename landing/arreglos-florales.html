@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flore: tienda de flores en Guadalajara que ofrece composiciones florales refinadas, rosas de excelente calidad y opciones para regalar. Servicio disponible las 24 horas. Comunícate con nosotros vía WhatsApp.">
+    <meta name="keywords" content="floristeria guadalajara, bouquet de flores, arreglo de flores, flores de regalo, flores 24 horas, arboles de cerezo, arreglos florales elegantes, flor de cerezo, flores guadalajara, flores frescas guadalajara, flores hoy guadalajara">
+    <meta name="language" content="es-MX">
+    <meta name="geo.placename" content="Guadalajara">
+    <meta name="geo.region" content="CO-TL">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://floristeriaguadalajara.dondeseria.com/landing/arreglos-florales">
+    <meta property="og:title" content="Arreglos Florales Elegantes en Guadalajara | Flore">
+    <meta property="og:description" content="Descubre nuestros hermosos arreglos de flores frescas en Guadalajara. Bouquets elegantes, flores de regalo y disponibilidad 24 horas.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=1200&q=80">
+    <meta property="og:locale" content="es_CO">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://floristeriaguadalajara.dondeseria.com/landing/arreglos-florales">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/landing.css">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TMB52RNQ85"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TMB52RNQ85');
+</script>
+<!-- Event snippet for Whatsapp_registro_marca conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-17949726049/TbmUCN-gxfcbEOGqjO9C'});
+</script>
+
+    <!-- Google Ads Conversion Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17949726049"></script>
+
+    <title>Arreglos Florales Elegantes en Guadalajara | Flore - Flores Frescas 24h</title>
+</head>
+<body>
+
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=1920&q=80');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Arreglos Florales Elegantes en Guadalajara</h1>
+            <p>Flores recién cortadas, composiciones de diseño original y asistencia continua las 24 horas del día</p>
+            <button class="cta-button" onclick="contactWA(); return false;">Contáctanos por WhatsApp</button>
+        </div>
+    </section>
+
+
+    <!-- Catálogo Completo -->
+    <section class="catalog-filters" id="productos">
+        <div class="container">
+            <!-- Barra de búsqueda -->
+            <div class="search-container">
+                <input type="text" class="search-input" id="search-input" placeholder="Buscar ramos, rosas, girasoles, gerberas...">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+                <button class="search-clear" id="search-clear">&times;</button>
+            </div>
+            <!-- Filtros -->
+            <div class="filters-container">
+                <span class="filter-label">Filtrar:</span>
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="girasoles">Girasoles</button>
+                <button class="filter-btn" data-filter="gerberas">Gerberas</button>
+                <button class="filter-btn" data-filter="bouquets">Bouquets</button>
+                <button class="filter-btn" data-filter="canastas">Canastas</button>
+                <button class="filter-btn" data-filter="cajas">Cajas</button>
+                <button class="filter-btn" data-filter="chocolates">Con Chocolates</button>
+                <button class="filter-btn" data-filter="novia">Novia</button>
+                <button class="filter-btn" data-filter="pompones">Pompones</button>
+                <button class="filter-btn" data-filter="rosas-eternas">Rosas Eternas</button>
+                <button class="filter-btn" data-filter="coreano">Estilo Coreano</button>
+                <button class="filter-btn" data-filter="premium">Premium</button>
+                <button class="filter-btn" data-filter="precio-bajo">Menos de $1,000</button>
+                <button class="filter-btn" data-filter="precio-medio">$1,000 - $2,250</button>
+                <button class="filter-btn" data-filter="precio-alto">Más de $2,250</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contador de resultados -->
+    <div class="results-counter">
+        <div class="container">
+            Mostrando <strong id="results-count">0</strong> productos
+        </div>
+    </div>
+
+    <!-- Grid de Productos -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-container"></div>
+            <div class="empty-state" id="empty-state">
+                <h3>No se encontraron productos</h3>
+                <p>Intenta con otro filtro o término de búsqueda</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Final -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Sorprende Hoy, Sonríen Mañana</h2>
+            <p>Coloca tu orden floral a domicilio en este momento. Realizamos entregas cada día en Guadalajara.</p>
+            <button class="cta-button-large" onclick="orderWA(); return false;">
+                📞 WhatsApp: +57 315 1100609
+            </button>
+            <p class="cta-subtitle">Disponibilidad permanente - Respuesta rápida</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-info">
+                <p><strong>Flore</strong> - Florería en Guadalajara, Jalisco, México</p>
+                <p>WhatsApp: <a href="https://wa.me/5213331727333">+57 315 1100609</a></p>
+                <p>Entrega a domicilio en toda la ciudad</p>
+            </div>
+            <p class="footer-copyright">&copy; 2024 Flore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Flore",
+        "description": "Floristería en Guadalajara con arreglos florales elegantes, flores frescas y disponibilidad 24 horas",
+        "url": "https://floristeriaguadalajara.dondeseria.com",
+        "telephone": "+5213331727333",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Guadalajara",
+            "addressRegion": "Jalisco",
+            "addressCountry": "MX"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "4.4384",
+            "longitude": "-75.2319"
+        },
+        "priceRange": "$",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "00:00",
+                "closes": "23:59"
+            }
+        ],
+        "image": "https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=1200&q=80"
+    }
+    </script>
+
+    <!-- JS -->
+    <script src="../js/landing.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+        LANDING_PRIORITY_TAG = 'bouquets';
+        initCatalog();
+    });
+    </script>
+</body>
+</html>
