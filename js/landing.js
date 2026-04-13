@@ -220,7 +220,7 @@ function removeAccents(str) {
 // --- FORMATEO DE PRECIO ---
 function formatCOP(price) {
     return new Intl.NumberFormat('es-MX', {
-        style: 'currency', currency: 'COP', minimumFractionDigits: 0, maximumFractionDigits: 0
+        style: 'currency', currency: 'MXN', minimumFractionDigits: 0, maximumFractionDigits: 0
     }).format(price);
 }
 
@@ -358,7 +358,7 @@ function contactWA() {
         gtag('event', 'conversion', {
             'send_to': 'AW-17949726049/eNHaCKmS7v4bELyX8PtC',
             'value': 1.0,
-            'currency': 'COP',
+            'currency': 'MXN',
             'event_callback': function () {
                 window.open(url, '_blank');
             }
@@ -376,7 +376,7 @@ function orderWA(productName, price) {
         gtag('event', 'conversion', {
             'send_to': 'AW-17949726049/eNHaCKmS7v4bELyX8PtC',
             'value': 1.0,
-            'currency': 'COP',
+            'currency': 'MXN',
             'event_callback': function () {
                 window.open(url, '_blank');
             }
