@@ -356,13 +356,15 @@ function contactWA() {
     const url = 'https://wa.me/5213320191282?text=Hola,%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20flores.%20%C2%BFPodr%C3%ADan%20ayudarme%3F';
     try {
         gtag('event', 'conversion', {
-            'send_to': 'AW-17949726049/eNHaCKmS7v4bELyX8PtC',
+            'send_to': 'AW-18090168298/fkGRCL_flJwcEOqfiLJD',
             'value': 1.0,
             'currency': 'MXN',
             'event_callback': function () {
                 window.open(url, '_blank');
             }
         });
+        // Fallback por si el event_callback no se dispara
+        setTimeout(function(){ window.open(url, '_blank'); }, 1500);
     } catch (e) {
         window.open(url, '_blank');
     }
@@ -374,13 +376,14 @@ function orderWA(productName, price) {
     const url = `https://wa.me/5213320191282?text=${encodedMessage}`;
     try {
         gtag('event', 'conversion', {
-            'send_to': 'AW-17949726049/eNHaCKmS7v4bELyX8PtC',
+            'send_to': 'AW-18090168298/fkGRCL_flJwcEOqfiLJD',
             'value': 1.0,
             'currency': 'MXN',
             'event_callback': function () {
                 window.open(url, '_blank');
             }
         });
+        setTimeout(function(){ window.open(url, '_blank'); }, 1500);
     } catch (e) {
         window.open(url, '_blank');
     }

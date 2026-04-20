@@ -106,20 +106,30 @@ function toggleMobileMenu() {
 }
 
 // ===================================
-// WHATSAPP TRACKING
+// WHATSAPP TRACKING - Google Ads Conversion
 // ===================================
 function trackWhatsAppClick(source) {
-    // Aquí puedes agregar tracking de Google Analytics o similar
     console.log(`WhatsApp click from: ${source}`);
-    
-    // Ejemplo con Google Analytics (descomenta si lo usas)
-    // if (typeof gtag !== 'undefined') {
-    //     gtag('event', 'whatsapp_click', {
-    //         'event_category': 'engagement',
-    //         'event_label': source
-    //     });
-    // }
+    try {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-18090168298/fkGRCL_flJwcEOqfiLJD',
+                'value': 1.0,
+                'currency': 'MXN'
+            });
+        }
+    } catch (e) {
+        console.error('Conversion tracking error:', e);
+    }
 }
+
+// Registrar click en cualquier enlace de WhatsApp (incluso los que no tienen onclick)
+document.addEventListener('click', function(e) {
+    const link = e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="whatsapp://"]');
+    if (link) {
+        trackWhatsAppClick(link.getAttribute('data-source') || 'auto-detected');
+    }
+}, true);
 
 // ===================================
 // ANIMACIÓN DE ENTRADA DE ELEMENTOS
