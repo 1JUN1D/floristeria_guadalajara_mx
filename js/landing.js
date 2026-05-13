@@ -352,8 +352,18 @@ function renderProducts(filters = [], limit = null) {
 }
 
 // --- FUNCIONES DE WHATSAPP ---
+// Helper: dispara la conversión adicional (WhatsAapp_Contacto - AW-17949726049)
+// SOLO se llama al hacer click en un botón/link de WhatsApp, NO en page load.
+function trackWhatsAppConversion() {
+    try {
+        gtag('event', 'conversion', {'send_to': 'AW-17949726049/o440CNP-_qscEOGqjO9C'});
+    } catch (e) { /* gtag no disponible */ }
+}
+
 function contactWA() {
     const url = 'https://wa.me/5213320191282?text=Hola,%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20flores.%20%C2%BFPodr%C3%ADan%20ayudarme%3F';
+    // Dispara conversión adicional WhatsAapp_Contacto
+    trackWhatsAppConversion();
     try {
         gtag('event', 'conversion', {
             'send_to': 'AW-18090168298/fkGRCL_flJwcEOqfiLJD',
@@ -374,6 +384,8 @@ function orderWA(productName, price) {
     const message = `Hola, me interesa ${productName} (${formatCOP(parseFloat(price))}). ¿Podrías darme más información?`;
     const encodedMessage = encodeURIComponent(message);
     const url = `https://wa.me/5213320191282?text=${encodedMessage}`;
+    // Dispara conversión adicional WhatsAapp_Contacto
+    trackWhatsAppConversion();
     try {
         gtag('event', 'conversion', {
             'send_to': 'AW-18090168298/fkGRCL_flJwcEOqfiLJD',
@@ -388,6 +400,16 @@ function orderWA(productName, price) {
         window.open(url, '_blank');
     }
 }
+
+// Auto-attach: cualquier <a href="wa.me/..."> directo (header/footer) también
+// dispara la conversión WhatsAapp_Contacto al hacer click (no en page load).
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(function(link) {
+        link.addEventListener('click', function() {
+            trackWhatsAppConversion();
+        });
+    });
+});
 
 // --- FILTRADO DE PRODUCTOS ---
 function filterProducts(tag) {
