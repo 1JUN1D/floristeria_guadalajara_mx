@@ -352,53 +352,43 @@ function renderProducts(filters = [], limit = null) {
 }
 
 // --- FUNCIONES DE WHATSAPP ---
-// Helper: dispara la conversión adicional (WhatsAapp_Contacto - AW-17949726049)
-// SOLO se llama al hacer click en un botón/link de WhatsApp, NO en page load.
-function trackWhatsAppConversion() {
+// Conversión Google Ads: WhatsAapp_Contacto (ID AW-17949726049 / etiqueta o440CNP-_qscEOGqjO9C)
+// SOLO se llama al hacer click en un botón/link de WhatsApp, NUNCA al cargar la página.
+function trackWhatsAppConversion(callback) {
     try {
-        gtag('event', 'conversion', {'send_to': 'AW-17949726049/o440CNP-_qscEOGqjO9C'});
-    } catch (e) { /* gtag no disponible */ }
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17949726049/o440CNP-_qscEOGqjO9C',
+            'event_callback': callback
+        });
+        // Fallback por si event_callback no se dispara (ad-blocker, etc.)
+        if (typeof callback === 'function') {
+            setTimeout(callback, 1500);
+        }
+    } catch (e) {
+        if (typeof callback === 'function') callback();
+    }
 }
 
 function contactWA() {
     const url = 'https://wa.me/5213320191282?text=Hola,%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20flores.%20%C2%BFPodr%C3%ADan%20ayudarme%3F';
-    // Dispara conversión adicional WhatsAapp_Contacto
-    trackWhatsAppConversion();
-    try {
-        gtag('event', 'conversion', {
-            'send_to': 'AW-18090168298/fkGRCL_flJwcEOqfiLJD',
-            'value': 1.0,
-            'currency': 'MXN',
-            'event_callback': function () {
-                window.open(url, '_blank');
-            }
-        });
-        // Fallback por si el event_callback no se dispara
-        setTimeout(function(){ window.open(url, '_blank'); }, 1500);
-    } catch (e) {
+    let opened = false;
+    trackWhatsAppConversion(function () {
+        if (opened) return;
+        opened = true;
         window.open(url, '_blank');
-    }
+    });
 }
 
 function orderWA(productName, price) {
     const message = `Hola, me interesa ${productName} (${formatCOP(parseFloat(price))}). ¿Podrías darme más información?`;
     const encodedMessage = encodeURIComponent(message);
     const url = `https://wa.me/5213320191282?text=${encodedMessage}`;
-    // Dispara conversión adicional WhatsAapp_Contacto
-    trackWhatsAppConversion();
-    try {
-        gtag('event', 'conversion', {
-            'send_to': 'AW-18090168298/fkGRCL_flJwcEOqfiLJD',
-            'value': 1.0,
-            'currency': 'MXN',
-            'event_callback': function () {
-                window.open(url, '_blank');
-            }
-        });
-        setTimeout(function(){ window.open(url, '_blank'); }, 1500);
-    } catch (e) {
+    let opened = false;
+    trackWhatsAppConversion(function () {
+        if (opened) return;
+        opened = true;
         window.open(url, '_blank');
-    }
+    });
 }
 
 // Auto-attach: cualquier <a href="wa.me/..."> directo (header/footer) también
@@ -406,6 +396,7 @@ function orderWA(productName, price) {
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href*="wa.me/"]').forEach(function(link) {
         link.addEventListener('click', function() {
+            // Disparo fire-and-forget: el navegador ya está navegando al wa.me
             trackWhatsAppConversion();
         });
     });
